@@ -1,0 +1,44 @@
+﻿@model List<ResultBookingDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Qonaq</th>
+				<th>Giriş Tarixi</th>
+				<th>Çıxış Tarixi</th>
+				<th>Status</th>
+				<th>Təsdiq</th>
+				<th>Ləğv Et</th>
+				<th>Gözlət</th>
+				<th>Yenilə</th>
+				<th>Detallar</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				count++;
+				<tr>
+					<th>@count</th>
+					<td>@item.Name</td>
+					<td>@(((DateTime)item.CheckIn).ToString("dd-MMM-yyyy"))</td>
+					<td>@(((DateTime)item.CheckOut).ToString("dd-MMM-yyyy"))</td>
+					<td><span class="badge badge-primary px-2">@item.Status</span></td>
+					<td><a href="/Appointments/ApproveReservation/@item.BookingID" class="btn btn-outline-primary">Təsdiq</a></td>
+					<td><a href="/Appointments/CancelReservation/@item.BookingID" class="btn btn-outline-danger">Ləğv Et</a></td>
+					<td><a href="/Appointments/HoldReservation/@item.BookingID" class="btn btn-outline-warning">Gözlət</a></td>
+					<td><a href="/Appointments/UpdateBooking/@item.BookingID" class="btn btn-outline-info">Yenilə</a></td>
+					<td><a href="/Appointments/UpdateBooking/@item.BookingID" class="btn btn-outline-dark">Detallar</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

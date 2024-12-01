@@ -1,0 +1,38 @@
+﻿@model List<ResultAboutDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<style>
+	td,th {
+		text-align:center;
+	}
+</style>
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>1-ci Başlıq</th>
+		<th>2-ci Başlıq</th>
+		<th>Yenilə</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.AboutId</td>
+			<td>
+				@(item.Title1 == "string" ? "Məlumat yoxdur" : item.Title1)
+			</td>
+			<td>
+				@(item.Title2 == "string" ? "Məlumat yoxdur" : item.Title2)
+			</td>
+
+			<td>
+				<a href="/AdminAbout/UpdateAbout/@item.AboutId" class="btn mb-1 btn-rounded btn-outline-success">Yenilə</a>
+
+			</td>
+		</tr>
+	}
+</table>
+
+
+

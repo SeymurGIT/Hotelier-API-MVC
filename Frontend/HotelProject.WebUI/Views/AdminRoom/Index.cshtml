@@ -1,0 +1,58 @@
+﻿@model List<ResultRoomDto> 
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+	int count = 1;
+}
+<style>
+	.room-image {
+		width: 200px;
+		height: 100px;
+	}
+</style>
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Otaq Nömrəsi</th>
+		<th>Otaq Şəkli</th>
+		<th>Otaq Başlığı</th>
+		<th>Otaq Açıqlaması</th>
+		<th>Yataq Sayı</th>
+		<th>Duş Sayı</th>
+		<th>Funksiyalar</th>
+	@foreach (var item in Model)
+	{			   
+
+		<tr>	   
+			<td>@count</td>
+			<td>@item.RoomNumber</td>
+			<td>
+				@if (!string.IsNullOrEmpty(item.RoomCoverImage))
+				{
+					<img style="width:250px;height:200px" src="@item.RoomCoverImage" />
+
+				}
+				else
+				{
+					<span>Şəkil yoxdur</span>
+				}
+
+			</td>
+			<td>@item.Title</td>
+			<td>@item.Description</td>
+			<td>@item.BedCount</td>
+			<td>@item.BathCount</td>
+			<td>
+				<a href="/AdminRoom/DeleteRoom/@item.RoomID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a>
+				<br />
+				<a href="/AdminRoom/UpdateRoom/@item.RoomID" class="btn mb-1 btn-rounded btn-outline-success">Yenilə</a>
+
+			</td>
+			
+
+		</tr>
+		count++;
+	}
+</table>
+<a href="/AdminRoom/AddRoom" class="btn mb-1 btn-rounded btn-outline-info">Yeni Otaq Əlavə Et</a>
+

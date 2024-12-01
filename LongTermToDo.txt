@@ -1,0 +1,12 @@
+﻿
+* => Zəruri
+- => Məsləhətli
+1)*File prosesleri Şəkil proseslərindən ayrı
+2) *Xidmətlərimiz açıqlamaları database
+3) *Testimonial açıqlamaları  database
+
+
+
+
+
+ -Xidmətlər üçün yazılacaq kontentin simvolların sayının 90-100 arası məhdudlaşdırmaq

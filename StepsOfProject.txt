@@ -1,0 +1,13 @@
+﻿
+
+
+-WebUI tərəfində Dtos qatmanı yaratmaq
+-Service dtoları yaratmaq (Update, Create, ResultService listelemek üçün)
+-
+
+
+
+-AddDbContext, AddIdentity => Register, Login ucun
+-RegisterDto
+-LoginDto
+

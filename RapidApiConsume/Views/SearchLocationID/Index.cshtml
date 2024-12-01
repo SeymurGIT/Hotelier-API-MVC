@@ -1,0 +1,31 @@
+﻿@model Tuple<string, List<DestinationIDLocationViewModel>>
+@{
+	Layout = null;
+	ViewData["Title"] = "Query on City ID";
+	string cityName = Model.Item1;
+
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+	<br />
+
+	@using(Html.BeginForm("Index", "SearchLocationID", FormMethod.Post))
+			{
+				<label>Şəhər</label>
+				<input type="text" class="form-control" placeholder="Şəhər adı yazın..." name="cityName"/>
+				<br />
+				<button class="btn btn-primary">Şəhər ID sorğula</button>
+			}
+	<table class="table table-bordered">	
+		@foreach (var location in Model.Item2)
+		{
+			<tr>
+				<td>@(string.IsNullOrEmpty(cityName) ? "Write city name" : $"Location ID for {cityName}: {location.dest_id}")</td>
+				
+				
+			</tr>
+		}
+	</table>
+
+</div>

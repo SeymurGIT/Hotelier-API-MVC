@@ -1,0 +1,51 @@
+﻿@model List<RoleAssignViewModel>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<style>
+	.custom-checkbox {
+		margin-right: 50px; /* Adjust this value as needed */
+		margin-bottom: 10px; /* Optional: add space below each checkbox */
+	}
+
+</style>
+<div class="card-body">
+	<h4 style="font-size:20px" class="card-title">Rol Təyinat Formu</h4>
+	@*<p class="text-muted">Use the <code>.form-check-inline</code> class if you want the checkboxes to appear on the same line</p>*@
+	<br>
+	<div class="basic-form">
+		<form method="post">
+
+			<div class="form-group">
+				@for (int i = 0; i < Model.Count; i++)
+				{
+					<div class="form-check form-check-inline custom-checkbox">
+						<input type="hidden" asp-for="@Model[i].RoleID" />
+						<input type="hidden" asp-for="@Model[i].RoleName" />
+						<label for="@Model[i].IsRoleExists" class="form-check-label">
+							<input type="checkbox" asp-for="@Model[i].IsRoleExists" class="form-check-input">@Model[i].RoleName
+						</label>
+					</div>
+					@*<div class="form-check form-check-inline disabled">
+							<label class="form-check-label">
+								<input type="checkbox" class="form-check-input" value="" disabled="disabled">Disabled
+							</label>
+						</div>*@
+				}
+				<br />
+				<br />
+					<button type="submit" class="btn mb-1 btn-info">Təyin et<span class="btn-icon-right"><i class="fa fa-angellist"></i></span> </button>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+

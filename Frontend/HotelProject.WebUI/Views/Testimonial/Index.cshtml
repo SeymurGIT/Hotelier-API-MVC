@@ -1,0 +1,34 @@
+﻿@model List<HotelProject.WebUI.Models.Testimonial.TestimonialViewModel>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Referans Görsəl</th>
+		<th>Referans Adı</th>
+		<th>Açıqlama</th>
+		<th>Sil</th>
+		<th>Yenilə</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.TestimonialId</td>
+			<td>@item.Image</td>
+			<td>@item.Name</td>
+			<td>@item.Description</td>
+			<td>
+				<a href="/Staff/DeleteStaff/@item.TestimonialId" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a>
+
+			</td>
+			<td>
+				<a href="/Staff/UpdateStaff/@item.TestimonialId" class="btn mb-1 btn-rounded btn-outline-success">Yenilə</a>
+
+			</td>
+			
+		</tr>
+	}
+</table>
+<a href="/Staff/AddTestimonial" class="btn mb-1 btn-rounded btn-outline-info">Referans Əlavə Et</a>

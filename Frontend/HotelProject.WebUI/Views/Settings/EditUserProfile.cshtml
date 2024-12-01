@@ -1,0 +1,78 @@
+﻿@model HotelProject.WebUI.Models.Settings.Profile.UserEditViewModel
+@{
+	ViewData["Title"] = "EditUserProfile";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+	<h1 class="card-title">Profil Məlumatları Yeniləmə</h1>
+	<br />
+	<div class="basic-form">
+		<form method="post">
+			<div class="form-group">
+				<label>İstifadəçi Ləqəbi</label>
+				<div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<div class="input-group-text">@@</div>
+					</div>
+					<input type="text" asp-for="Username" class="form-control" placeholder="İstifadəçi ləqəbi" readonly>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label>İstifadəçinin Adı</label>
+					<input type="text" asp-for="Name" class="form-control" placeholder="Ad">
+				</div>
+				<div class="form-group col-md-6">
+					<label>İstifadəçinin Soyadı</label>
+					<input type="text" asp-for="Surname" class="form-control" placeholder="Soyad">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>İstifadəçi email ünvanı</label>
+				<input type="email" asp-for="Email" class="form-control" placeholder="E-poçt ünvanı">
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label>Şifrə</label>
+					<input type="password" asp-for="Password" placeholder="Yeni şifrəniz..." class="form-control">
+				</div>
+				<div class="form-group col-md-6">
+					<label>Şifrə təkrarı</label>
+					<input type="password" asp-for="ConfirmPassword" placeholder="Yeni şifrə təkrarı" class="form-control">
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-dark">Yenilə</button>
+		</form>
+	</div>
+</div>
+
+
+@*<div class="form-row">*@
+@*<div class="form-group col-md-4">
+			<label>State</label>
+			<select id="inputState" class="form-control">
+				<option selected="selected">Choose...</option>
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+			</select>
+		</div>
+		<div class="form-group col-md-2">
+			<label>Zip</label>
+			<input type="text" class="form-control">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox">
+			<label class="form-check-label">Check me out</label>
+		</div>*@
+<!--<button type="submit" class="btn btn-dark">Sign in</button>
+		</form>
+	</div>
+</div>-->

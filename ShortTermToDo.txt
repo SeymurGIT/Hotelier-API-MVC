@@ -1,0 +1,2 @@
+﻿Authorization proje seviyyesinde işləmədi
+SmtpClient kodlarını SendMessage-ə

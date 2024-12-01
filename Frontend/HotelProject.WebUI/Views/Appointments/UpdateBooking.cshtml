@@ -1,0 +1,177 @@
+﻿@model UpdateBookingDto
+@{
+	ViewData["Title"] = "UpdateBooking";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+@section DateTimePickerStyles {
+	<link href="~/adminweb/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+	<link href="~/adminweb/plugins/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+	<link href="~/adminweb/plugins/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
+	<link href="~/adminweb/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link href="~/adminweb/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+	<link href="~/adminweb/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+}
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="form-validation">
+						<form class="form-valide" action="#" method="post">
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label">
+									Müştəri Adı Soyadı @*<span class="text-danger">*</span>*@
+								</label>
+								<div class="col-lg-6">
+									<input type="text" asp-for="Name" class="form-control" placeholder="Adı daxil edin...">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label">
+									Müştəri Mail Adresi
+								</label>
+								<div class="col-lg-6">
+									<input type="text" asp-for="Mail" class="form-control" placeholder="Your valid email..">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-6">
+									<label class="m-t-40">Müştəri Giriş Vaxtı</label>
+									<input type="text" asp-for="CheckIn" id="date-format" class="form-control" placeholder="@DateTime.Now.ToString("MMM") - @DateTime.Now.Year"><span class="input-group-append"><span class="input-group-text"><i class="mdi mdi-calendar-check"></i></span></span>
+
+																																								 <label class="m-t-40">Müştəri Çıxış Vaxtı</label>
+									<input type="text" asp-for="CheckOut" id="date-format" class="form-control" placeholder="@DateTime.Now.ToString("MMM") - @DateTime.Now.Year"><span class="input-group-append"><span class="input-group-text"><i class="mdi mdi-calendar-check"></i></span></span>
+						@*Sadece Tarix vaxtı
+						<label class="m-t-20">Müştəri Giriş Tarixi</label>
+						<input type="text" class="form-control" placeholder="2017-06-04" id="mdate">*@
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-password">
+									Password <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="password" class="form-control" id="val-password" name="val-password" placeholder="Choose a safe one..">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-confirm-password">
+									Confirm Password <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="..and confirm it!">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-suggestions">
+									Suggestions <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What would you like to see?"></textarea>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-skill">
+									Best Skill <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<select class="form-control" id="val-skill" name="val-skill">
+										<option value="">Please select</option>
+										<option value="html">HTML</option>
+										<option value="css">CSS</option>
+										<option value="javascript">JavaScript</option>
+										<option value="angular">Angular</option>
+										<option value="angular">React</option>
+										<option value="vuejs">Vue.js</option>
+										<option value="ruby">Ruby</option>
+										<option value="php">PHP</option>
+										<option value="asp">ASP.NET</option>
+										<option value="python">Python</option>
+										<option value="mysql">MySQL</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-currency">
+									Currency <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control" id="val-currency" name="val-currency" placeholder="$21.60">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-website">
+									Website <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control" id="val-website" name="val-website" placeholder="http://example.com">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-phoneus">
+									Phone (US) <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-digits">
+									Digits <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control" id="val-digits" name="val-digits" placeholder="5">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-number">
+									Number <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control" id="val-number" name="val-number" placeholder="5.0">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label" for="val-range">
+									Range [1, 5] <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-6">
+									<input type="text" class="form-control" id="val-range" name="val-range" placeholder="4">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-4 col-form-label">
+									<a href="#">Terms &amp; Conditions</a>  <span class="text-danger">*</span>
+								</label>
+								<div class="col-lg-8">
+									<label class="css-control css-control-primary css-checkbox" for="val-terms">
+										<input type="checkbox" class="css-control-input" id="val-terms" name="val-terms" value="1"> <span class="css-control-indicator"></span> I agree to the terms
+									</label>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-lg-8 ml-auto">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@section DateTimePickerScripts {
+	<script src="~/adminweb/plugins/moment/moment.js"></script>
+	<script src="~/adminweb/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+	<script src="~/adminweb/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
+	<script src="~/adminweb/plugins/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+	<script src="~/adminweb/plugins/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+	<script src="~/adminweb/plugins/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+	<script src="~/adminweb/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+	<script src="~/adminweb/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+	<script src="~/adminweb/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="~/adminweb/js/plugins-init/form-pickers-init.js"></script>
+}
+
+

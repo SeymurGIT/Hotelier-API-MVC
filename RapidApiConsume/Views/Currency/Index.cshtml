@@ -1,0 +1,33 @@
+﻿@model CurrencyViewModel
+@{
+	Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+	<br />
+
+	<table class="table table-bordered">
+		
+			<tr>
+				<th>#</th>
+				<th>Əsas Məzənnə</th>
+				<th>Çeviri Məzənnə</th>
+			</tr>
+				@{ 
+					int count = 0;
+				}
+				@foreach (var property in typeof(CurrencyViewModel.Rates).GetProperties())
+				{
+					<tr>
+						<td>@count</td>
+						<td>@Model.GetType().GetProperty("base").GetValue(Model, null)</td>
+						<td>@property.Name: @property.GetValue(Model.rates, null)</td>
+					</tr>
+						count++;
+				}
+		
+	</table>
+
+</div>
+

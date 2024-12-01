@@ -1,0 +1,74 @@
+﻿@model CreateContactDto 
+<div class="container-xxl py-5">
+	<div class="container">
+		<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+			<h6 class="section-title text-center text-primary text-uppercase">Bizimlə Əlaqə</h6>
+			<h1 class="mb-5"><span class="text-primary text-uppercase">Suallarınız üçün </span>Əlaqə Saxlayın </h1>
+		</div>
+		<div class="row g-4">
+			<div class="col-12">
+				<div class="row gy-4">
+					<div class="col-md-4">
+						<h6 class="section-title text-start text-primary text-uppercase">Rezervasiya</h6>
+						<p><i class="fa fa-envelope-open text-primary me-2"></i>book@example.com</p>
+					</div>
+					<div class="col-md-4">
+						<h6 class="section-title text-start text-primary text-uppercase">Ümumi</h6>
+						<p><i class="fa fa-envelope-open text-primary me-2"></i>info@example.com</p>
+					</div>
+					<div class="col-md-4">
+						<h6 class="section-title text-start text-primary text-uppercase">Texniki</h6>
+						<p><i class="fa fa-envelope-open text-primary me-2"></i>tech@example.com</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+				<iframe class="position-relative rounded w-100 h-100"
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d759.5220560816089!2d49.9787278!3d40.4068963!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403063db84d8a269%3A0x627d7071aa6db2da!2sORDUBAD%20MARKET!5e0!3m2!1saz!2saz!4v1721748524398!5m2!1saz!2saz"
+						frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+						tabindex="0"></iframe>
+
+			</div>
+			<div class="col-md-6">
+				<div class="wow fadeInUp" data-wow-delay="0.2s">
+					<form method="post" asp-action="SendMessage" asp-controller="Contact">
+						<div class="row g-3">
+							<div class="col-md-6">
+								<div class="form-floating">
+									<input type="text" asp-for="Name" class="form-control" id="name" placeholder="Adınız...">
+									<label for="name">Ad Soyad</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-floating">
+									<input type="email" asp-for="Mail" class="form-control" id="email" placeholder="Email ünvanınız...">
+									<label for="email">Email Ünvanı</label>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-floating">
+									@Html.DropDownListFor(x => x.MessageCategoryID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+									<label for="subject">Kateqoriya Seçin</label>
+								</div>
+								<br />
+								<div class="form-floating">
+									<input type="text" class="form-control" id="subject" placeholder="" name="Subject">
+									<label for="subject">Mövzu Başlığı</label>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-floating">
+									<textarea asp-for="Message" class="form-control" placeholder="Bura mesaj yazın..." id="message" style="height: 150px"></textarea>
+									<label for="message">Mesaj</label>
+								</div>
+							</div>
+							<div class="col-12">
+								<button class="btn btn-primary w-100 py-3" type="submit">Mesajı göndər</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
